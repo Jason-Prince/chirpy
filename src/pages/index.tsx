@@ -1,13 +1,12 @@
 import { SignInButton, useUser } from "@clerk/nextjs";
 import { type NextPage } from "next";
 import { api } from "~/utils/api";
-
 import Image from "next/image";
 import { LoadingPage, LoadingSpinner } from "~/components/loading";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { PageLayout } from "~/components/layout";
-import { PostsView } from "~/components/postview";
+import { PostView } from "~/components/postview";
 
 const CreatePostWizard = () => {
   const { user } = useUser();
@@ -78,7 +77,7 @@ const Feed = () => {
   return (
     <div className="flex flex-col">
       {data.map((fullPost) => (
-        <PostsView {...fullPost} key={fullPost.post.id} />
+        <PostView {...fullPost} key={fullPost.post.id} />
       ))}
     </div>
   );
